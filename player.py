@@ -1,6 +1,5 @@
 import pygame as pg
 import random as rd
-from point import Point
 
 
 
@@ -14,15 +13,15 @@ class Player:
 	
 	def spawn(self, spawnpoints, frame_count):
 		self.health = 20
-		self.pos = Point(*rd.choice(spawnpoints))
-		self.vel = Point(0, 0)
+		self.pos = rd.choice(spawnpoints)
+		self.vel = [0, 0]
 		self.state = 'stay', frame_count
 
-		print('Respawned at', self.pos.getCoords())
+		print('Respawned at', self.pos)
 
 
 	def intPos(self):
-		return self.pos.getCoords(integer = True)
+		return [int(v) for v in self.pos]
 
 
 	def getImg(self, frame_count):
