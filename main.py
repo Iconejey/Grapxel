@@ -30,18 +30,19 @@ if __name__ == "__main__":
 	last_count = 0
 	game_end = False
 	while not game_end:
-		time.sleep(1/120)
-		if time.perf_counter() - last_count >= 1/30:
+		time.sleep(1/1000)
+		if time.perf_counter() - last_count >= 1/60:
 			frame_count = int(time.perf_counter() * 1000)
 			last_count = time.perf_counter()
 
-				
 			for event in pg.event.get():
 				if event.type == pg.QUIT:
 					game_end = True
 
 			if player.health <= 0:
 				player.spawn(world_set['spawnpoints'], frame_count)
+			else:
+				player.move(pg.key.get_pressed(), world_set['hitboxes'], frame_count)
 
 			surfaces['main'].fill([21, 24, 33])
 
