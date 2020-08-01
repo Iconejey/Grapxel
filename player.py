@@ -36,7 +36,6 @@ class Player:
 
 		# JUMP
 		if keys[pg.K_SPACE] and self.vel[1] is 0:
-			state
 			self.vel[1] -= 5
 
 		# LEFT

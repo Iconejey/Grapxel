@@ -14,7 +14,7 @@ if __name__ == "__main__":
 	Player.img_bank = img_bank
 
 	windll.shcore.SetProcessDpiAwareness(1)
-	SCR_SIZE = [900, 560]
+	SCR_SIZE = [1800, 900]
 	SCREEN = pg.display.set_mode(SCR_SIZE)
 
 	player = Player()
